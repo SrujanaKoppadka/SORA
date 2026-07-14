@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import { GiNoodles, GiSushis, GiBowlOfRice, GiDumpling, GiMartini, GiCupcake } from 'react-icons/gi';
 import { MdOutlineBento } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import { useLenis } from 'lenis/react';
 
 import imgAgedashiTofu from '../../assets/c_agedashi-tofu.jpg';
 import imgEbiMayo from '../../assets/c_ebi-mayo.jpg';
@@ -79,7 +80,39 @@ const allMenuItems = [
 ];
 
 export function FeaturedMenu({ isFullMenu = false }) {
-  const [activeTab, setActiveTab] = useState(isFullMenu ? 'all' : 'starters');
+  const [searchParams] = useSearchParams();
+  const categoryParam = searchParams.get('category');
+  const validCategoryIds = categories.map(c => c.id);
+  const initialTab = isFullMenu && categoryParam && validCategoryIds.includes(categoryParam)
+    ? categoryParam
+    : (isFullMenu ? 'all' : 'starters');
+
+  const [activeTab, setActiveTab] = useState(initialTab);
+  const lenis = useLenis();
+
+  // Keep the active tab in sync if the category changes via URL (e.g. clicking
+  // a different food-category link in the footer while already on /menu).
+  useEffect(() => {
+    if (!isFullMenu) return;
+    if (categoryParam && validCategoryIds.includes(categoryParam)) {
+      setActiveTab(categoryParam);
+    }
+  }, [categoryParam, isFullMenu]);
+
+  // Scroll the menu section into view when arriving with a category deep-link.
+  useEffect(() => {
+    if (!isFullMenu || !categoryParam) return;
+    const timer = setTimeout(() => {
+      const el = document.getElementById('menu');
+      if (!el) return;
+      if (lenis) {
+        lenis.scrollTo(el, { offset: -100 });
+      } else {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 650);
+    return () => clearTimeout(timer);
+  }, [categoryParam, isFullMenu, lenis]);
 
   // Filter items or fallback to all items if category has none (for demo purposes)
   const filteredItems = activeTab === 'all' ? allMenuItems : allMenuItems.filter(item => item.category === activeTab);

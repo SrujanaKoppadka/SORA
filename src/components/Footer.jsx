@@ -2,6 +2,15 @@ import { FiInstagram, FiFacebook } from 'react-icons/fi';
 import { FaXTwitter } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+
+const foodCategories = [
+  { label: 'Starters', id: 'starters' },
+  { label: 'Rice Bowls', id: 'rice_bowls' },
+  { label: 'Ramen', id: 'ramen' },
+  { label: 'Sushi', id: 'sushi' },
+  { label: 'Beverages', id: 'beverages' }
+];
+
 export function Footer() {
   return <footer className="bg-navy-dark text-white pt-24 pb-12 overflow-hidden relative">
       {/* Decorative Wave Pattern Background */}
@@ -60,6 +69,20 @@ export function Footer() {
             </p>
           </div>
 
+          <div>
+            <h3 className="text-lg font-serif font-semibold mb-6">Food Categories</h3>
+            <ul className="space-y-4">
+              {foodCategories.map(cat => (
+                <li key={cat.id}>
+                  <Link to={`/menu?category=${cat.id}`} className="text-white/70 hover:text-white transition-colors relative group inline-block">
+                    {cat.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* <div>
             <h3 className="text-lg font-serif font-semibold mb-6">Newsletter</h3>
             <p className="text-white/70 mb-4 font-light text-sm">
@@ -75,15 +98,8 @@ export function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/50 font-light">
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left">
-            <p>&copy; {new Date().getFullYear()} Sora Eats. All rights reserved.</p>
-            <span className="hidden md:inline">|</span>
-            <p>Designed by <a href="https://metromindz.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold transition-colors font-medium">Metromindz</a></p>
-          </div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          </div>
+          <p>&copy; {new Date().getFullYear()} Sora Eats. All rights reserved.</p>
+          <p>Designed by <a href="https://metromindz.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold transition-colors font-medium">Metromindz</a></p>
         </div>
       </div>
     </footer>;
