@@ -1,0 +1,103 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-cream: var(--cream);
+  --color-softgray: var(--softgray);
+  --color-lightblue: var(--lightblue);
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-jp: "Noto Sans JP", sans-serif;
+}
+
+:root {
+  --radius: 24px;
+
+  --navy: #123E8A;
+  --navy-dark: #0A2458;
+  --cream: #ffffff;
+  --softgray: #F5F5F5;
+  --lightblue: #E3F2FD;
+
+  --background: var(--cream);
+  --foreground: var(--navy-dark);
+  --card: rgba(255, 255, 255, 0.7);
+  --card-foreground: var(--navy-dark);
+  --popover: #ffffff;
+  --popover-foreground: var(--navy-dark);
+  --primary: var(--navy);
+  --primary-foreground: #ffffff;
+  --secondary: var(--lightblue);
+  --secondary-foreground: var(--navy);
+  --muted: var(--softgray);
+  --muted-foreground: color-mix(in oklab, var(--navy) 65%, white);
+  --accent: var(--lightblue);
+  --accent-foreground: var(--navy);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: #fff;
+  --border: color-mix(in oklab, var(--navy) 12%, transparent);
+  --input: color-mix(in oklab, var(--navy) 20%, transparent);
+  --ring: var(--navy);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-serif); }
+}
+
+@utility seigaiha {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'><g fill='none' stroke='%2314213D' stroke-width='1' opacity='0.18'><circle cx='0' cy='40' r='20'/><circle cx='40' cy='40' r='20'/><circle cx='80' cy='40' r='20'/><circle cx='20' cy='40' r='10'/><circle cx='60' cy='40' r='10'/><circle cx='0' cy='40' r='30'/><circle cx='40' cy='40' r='30'/><circle cx='80' cy='40' r='30'/></g></svg>");
+  background-size: 80px 40px;
+}
+
+@utility kicker-line {
+  &::before, &::after {
+    content: "";
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
+    vertical-align: middle;
+    margin: 0 0.75rem;
+  }
+}
