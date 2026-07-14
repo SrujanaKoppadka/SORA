@@ -1,4 +1,4 @@
-import { FiInstagram, FiFacebook } from 'react-icons/fi';
+import { FiInstagram, FiFacebook, FiPhone, FiGlobe, FiMail } from 'react-icons/fi';
 import { FaXTwitter } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -67,6 +67,26 @@ export function Footer() {
               Phoenix Mall of Asia,<br />
               Bengaluru
             </p>
+            <ul className="space-y-3">
+              <li>
+                <a href="tel:+919620994949" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm font-light">
+                  <FiPhone size={14} className="shrink-0" />
+                  <span>+91 96209 94949, 9986985752</span>
+                </a>
+              </li>
+              <li>
+                {/* <a href="https://www.soraeats.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm font-light">
+                  <FiGlobe size={14} className="shrink-0" />
+                  <span>www.soraeats.in</span>
+                </a> */}
+              </li>
+              <li>
+                <a href="mailto:contact@soraeats.in" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm font-light">
+                  <FiMail size={14} className="shrink-0" />
+                  <span>contact@soraeats.in</span>
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div>

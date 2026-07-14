@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { Link, useLocation } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiPhone, FiGlobe, FiMail } from 'react-icons/fi';
 import { useFeedback } from '../context/FeedbackContext';
 const navLinks = [{
   name: 'HOME',
@@ -40,7 +40,37 @@ export function Navigation() {
     }} transition={{
       duration: 0.8,
       ease: [0.16, 1, 0.3, 1]
-    }} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 hidden lg:block ${isScrolled ? 'bg-white shadow-[0_4px_30px_rgba(0,0,0,0.05)] py-2' : 'bg-transparent py-4'}`}>
+    }} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 hidden lg:block ${isScrolled ? 'bg-white shadow-[0_4px_30px_rgba(0,0,0,0.05)]' : 'bg-transparent'}`}>
+        <AnimatePresence initial={false}>
+          {!isScrolled && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-navy-dark text-white overflow-hidden"
+            >
+              <div className="container mx-auto px-6 lg:px-12 py-2 flex justify-center items-center gap-8 text-xs font-medium tracking-wide">
+                <a href="tel:+919620994949" className="flex items-center gap-2 hover:text-gold transition-colors">
+                  <FiPhone size={13} />
+                  <span>+91 96209 94949, 9986985752</span>
+                </a>
+                <span className="w-px h-3 bg-white/20" />
+                {/* <a href="https://www.soraeats.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-gold transition-colors">
+                  <FiGlobe size={13} />
+                  <span>www.soraeats.in</span>
+                </a> */}
+                <span className="w-px h-3 bg-white/20" />
+                <a href="mailto:contact@soraeats.in" className="flex items-center gap-2 hover:text-gold transition-colors">
+                  <FiMail size={13} />
+                  <span>contact@soraeats.in</span>
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className={`transition-all duration-500 ${isScrolled ? 'py-2' : 'py-4'}`}>
         <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
           {/* Logo Area (Left) */}
           <div className="flex-1 flex justify-start">
@@ -63,6 +93,7 @@ export function Navigation() {
               FEEDBACK
             </button>
           </div>
+        </div>
         </div>
       </motion.nav>
 

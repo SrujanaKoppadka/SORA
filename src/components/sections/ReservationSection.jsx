@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiCheckCircle } from 'react-icons/fi';
+import { FiCheckCircle, FiPhone, FiGlobe, FiMail, FiMapPin } from 'react-icons/fi';
 export function ReservationSection() {
   const [status, setStatus] = useState('idle');
   const handleSubmit = e => {
@@ -28,7 +28,22 @@ export function ReservationSection() {
               Have a question or want to get in touch? Send us a message and we'll get back to you as soon as possible.
             </p>
             <div className="space-y-4 text-navy-dark/80 font-light">
-              <p><strong>Location:</strong> Phoenix Mall of Asia, Bengaluru</p>
+              <p className="flex items-start gap-3">
+                <FiMapPin size={18} className="shrink-0 mt-0.5 text-navy" />
+                <span>Phoenix Mall of Asia, Bengaluru</span>
+              </p>
+              <a href="tel:+919620994949" className="flex items-center gap-3 hover:text-navy transition-colors">
+                <FiPhone size={18} className="shrink-0 text-navy" />
+                <span>+91 96209 94949, 9986985752</span>
+              </a>
+              {/* <a href="https://www.soraeats.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-navy transition-colors">
+                <FiGlobe size={18} className="shrink-0 text-navy" />
+                <span>www.soraeats.in</span>
+              </a> */}
+              <a href="mailto:contact@soraeats.in" className="flex items-center gap-3 hover:text-navy transition-colors">
+                <FiMail size={18} className="shrink-0 text-navy" />
+                <span>contact@soraeats.in</span>
+              </a>
             </div>
           </div>
 
