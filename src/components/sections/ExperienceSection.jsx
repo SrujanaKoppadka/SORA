@@ -18,7 +18,7 @@ const features = [{
   icon: FiClock
 }];
 export function ExperienceSection() {
-  return <section id="experience" className="py-24 md:py-32 bg-secondary/40 relative overflow-hidden">
+  return <section id="experience" className="py-8 md:py-12 bg-secondary/40 relative overflow-hidden">
       {/* Decorative Wave Overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-5" style={{
       backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'><g fill='none' stroke='%23123E8A' stroke-width='1'><circle cx='0' cy='40' r='20'/><circle cx='40' cy='40' r='20'/><circle cx='80' cy='40' r='20'/><circle cx='20' cy='40' r='10'/><circle cx='60' cy='40' r='10'/><circle cx='0' cy='40' r='30'/><circle cx='40' cy='40' r='30'/><circle cx='80' cy='40' r='30'/></g></svg>")`,
@@ -26,10 +26,10 @@ export function ExperienceSection() {
     }} />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <span className="text-navy uppercase tracking-[0.2em] text-sm font-bold mb-4 block">Why Sora Eats</span>
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
+          <span className="text-navy uppercase tracking-[0.2em] text-sm font-bold mb-4 block">Our Ambiance & Culture</span>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy-dark mb-6 leading-tight">
-            The Sora Experience
+            The Sora Atmosphere
           </h2>
         </div>
 

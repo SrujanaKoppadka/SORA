@@ -16,7 +16,7 @@ export function Home() {
       <HeroSection />
       
       {/* Home About Preview */}
-      <section className="py-24 bg-secondary/40 relative overflow-hidden">
+      <section className="py-16 md:py-20 bg-secondary/40 relative overflow-hidden">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2">
@@ -29,7 +29,7 @@ export function Home() {
                 READ OUR STORY
               </Link>
             </div>
-          <div className="md:w-1/2 relative h-[850px] md:h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-navy/10">
+          <div className="md:w-1/2 relative h-[350px] md:h-[450px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-navy/10">
   <img src={aboutImage} alt="Sora Eats Ambiance" className="w-full h-full object-cover" />
 </div>
           </div>

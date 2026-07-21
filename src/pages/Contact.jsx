@@ -8,7 +8,7 @@ export function Contact() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="pt-24 bg-cream"
+      className="pt-24 md:pt-36 lg:pt-44 bg-cream"
     >
       <ReservationSection />
     </motion.div>

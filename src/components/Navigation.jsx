@@ -75,7 +75,7 @@ export function Navigation() {
           {/* Logo Area (Left) */}
           <div className="flex-1 flex justify-start">
            <Link to="/" className="flex flex-col items-center justify-center text-navy-dark transition-transform hover:opacity-80">
-  <img src="/Soralogo.png" alt="Sora Eats" className="w-24 h-24 lg:w-32 lg:h-32 object-contain" />
+  <img src="/Soralogo.png" alt="Sora Eats" className="w-20 h-20 lg:w-28 lg:h-28 object-contain" />
 </Link>
           </div>
 
@@ -97,30 +97,28 @@ export function Navigation() {
         </div>
       </motion.nav>
 
-      {/* Mobile Floating Bottom Navigation (Keeping this for responsive layout) */}
-      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-sm">
-        <div className="bg-white/90 backdrop-blur-xl shadow-2xl rounded-[24px] border border-white/20 p-2 flex justify-between items-center px-6 py-3">
-         <Link to="/" className="text-lg font-serif text-navy-dark flex items-center justify-center gap-2">
-  <img src="/Soralogo.png" alt="Sora Eats" className="w-14 h-14 object-contain" />
-</Link>
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-navy-dark p-2">
-            {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
-        </div>
+      {/* Mobile Top Navigation Header */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-md border-b border-navy/10 px-6 py-3 flex justify-between items-center">
+        <Link to="/" className="flex items-center gap-2">
+          <img src="/Soralogo.png" alt="Sora Eats" className="w-12 h-12 object-contain" />
+        </Link>
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-navy-dark p-2">
+          {mobileMenuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
+        </button>
       </div>
 
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div initial={{
             opacity: 0,
-            y: 20
+            y: -20
           }} animate={{
             opacity: 1,
             y: 0
           }} exit={{
             opacity: 0,
-            y: 20
-          }} className="lg:hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-40 w-[90%] max-w-sm bg-white/95 backdrop-blur-xl rounded-[24px] shadow-2xl border border-white/20 p-6 flex flex-col gap-4">
+            y: -20
+          }} className="lg:hidden fixed top-16 left-0 right-0 z-40 bg-white/95 backdrop-blur-xl shadow-2xl border-b border-navy/10 p-6 flex flex-col gap-4">
             {navLinks.map(link => <Link key={link.name} to={link.path} onClick={() => setMobileMenuOpen(false)} className={`text-lg font-bold tracking-wider text-center py-2 border-b border-softgray ${location.pathname === link.path ? 'text-navy' : 'text-navy-dark'}`}>
                 {link.name}
               </Link>)}
@@ -130,7 +128,7 @@ export function Navigation() {
                 setMobileMenuOpen(false);
                 openFeedback();
               }}
-              className="mt-2 text-center px-6 py-3 bg-navy-dark text-white text-sm font-bold tracking-wider"
+              className="mt-2 text-center px-6 py-3 bg-navy-dark text-white text-sm font-bold tracking-wider rounded-md"
             >
               FEEDBACK
             </button>

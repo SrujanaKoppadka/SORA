@@ -51,7 +51,7 @@ const categories = [
 
 const allMenuItems = [
   { category: 'starters', name: "Japanese Gyoza", price: "₹280 - 320", tag: "", image: imgJapaneeseGyoza, desc: "Pan-fried dumplings filled with minced chicken/prawn/vegetables served with gyoza sauce", isVeg: false },
-  { category: 'starters', name: "Shio Koji Chicken Karage", price: "₹290", tag: "", image: imgShioKojiChickenKarage, desc: "Classic Japanese fried chicken marinated with shio koji (a fermented rice malt paste) and deep fried.", isVeg: false },
+  { category: 'starters', name: "Shio Koji Chicken Karaage", price: "₹290", tag: "", image: imgShioKojiChickenKarage, desc: "Classic Japanese fried chicken marinated with shio koji (a fermented rice malt paste) and deep fried.", isVeg: false },
   { category: 'starters', name: "Miso Soup", price: "₹170 - 190", tag: "", image: imgMisoSoup, desc: "Traditional Japanese soup consisting of miso in a dashi stock.", isVeg: false },
   { category: 'starters', name: "Agedashi Tofu", price: "₹270", tag: "", image: imgAgedashiTofu, desc: "Agedashi tofu is a popular Japanese starter made with cubes of soft tofu crispy outside served in a thick umami-rich sauce", isVeg: true },
   { category: 'starters', name: "Ebi Mayo", price: "₹320", tag: "", image: imgEbiMayo, desc: "Crispy deep-fried shrimp tossed in a sweet, tangy, and creamy mayonnaise-based sauce", isVeg: false },
@@ -117,34 +117,36 @@ export function FeaturedMenu({ isFullMenu = false }) {
   // Filter items or fallback to all items if category has none (for demo purposes)
   const filteredItems = activeTab === 'all' ? allMenuItems : allMenuItems.filter(item => item.category === activeTab);
   const itemsToDisplay = filteredItems.length > 0 ? filteredItems : allMenuItems.slice(0, 3);
-  return <section id="menu" className="py-24 md:py-32 bg-white relative overflow-hidden">
+  return <section id="menu" className="py-8 md:py-12 bg-white relative overflow-hidden">
       {/* Decorative Wave Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0" style={{
         backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'><g fill='none' stroke='%23123E8A' stroke-width='2'><circle cx='0' cy='40' r='20'/><circle cx='40' cy='40' r='20'/><circle cx='80' cy='40' r='20'/><circle cx='20' cy='40' r='10'/><circle cx='60' cy='40' r='10'/><circle cx='0' cy='40' r='30'/><circle cx='40' cy='40' r='30'/><circle cx='80' cy='40' r='30'/></g></svg>")`,
         backgroundSize: '80px 40px'
       }} />
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-navy uppercase tracking-[0.2em] text-sm font-bold mb-4 block">OUR MENU</span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy-dark mb-6">
-            A Taste of Japan
-          </h2>
-          <p className="text-navy-dark/70 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto">
-            Explore our carefully curated selection of authentic Japanese dishes. From comforting bowls of ramen to precisely crafted sushi, every item is prepared with fresh ingredients and an uncompromising dedication to traditional flavor profiles.
-          </p>
-          {/* Centered short underline */}
-          <div className="w-16 h-0.5 bg-navy mx-auto mt-8 mb-12"></div>
-        </div>
+        {/* Header Section (Only shown on Home page, hidden when on /menu page) */}
+        {!isFullMenu && (
+          <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
+            <span className="text-navy uppercase tracking-[0.2em] text-sm font-bold mb-3 block">OUR MENU</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy-dark mb-4">
+              A Taste of Japan
+            </h2>
+            <p className="text-navy-dark/70 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto">
+              Explore our carefully curated selection of authentic Japanese dishes. From comforting bowls of ramen to precisely crafted sushi, every item is prepared with fresh ingredients and an uncompromising dedication to traditional flavor profiles.
+            </p>
+            {/* Centered short underline */}
+            <div className="w-16 h-0.5 bg-navy mx-auto mt-4 mb-4"></div>
+          </div>
+        )}
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center items-end gap-6 md:gap-12 mb-16 overflow-x-auto pb-4 hide-scrollbar">
+        <div className="flex flex-wrap justify-center items-end gap-6 md:gap-10 mb-6 md:mb-8 overflow-x-auto pb-2 hide-scrollbar">
           {categories.map(cat => {
           const isActive = activeTab === cat.id;
           const Icon = cat.icon;
-          return <button key={cat.id} onClick={() => setActiveTab(cat.id)} className="flex flex-col items-center gap-3 min-w-[80px] group transition-all">
-                <div className={`w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 ${isActive ? 'bg-navy-dark text-white shadow-lg' : 'bg-transparent text-navy-dark/60 group-hover:text-navy-dark'}`}>
-                  <Icon className={`text-3xl ${!isActive && 'opacity-80'}`} />
+          return <button key={cat.id} onClick={() => setActiveTab(cat.id)} className="flex flex-col items-center gap-2.5 min-w-[76px] group transition-all">
+                <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 ${isActive ? 'bg-navy-dark text-white shadow-lg' : 'bg-transparent text-navy-dark/60 group-hover:text-navy-dark'}`}>
+                  <Icon className={`text-2xl ${!isActive && 'opacity-80'}`} />
                 </div>
                 
                 <span className={`text-xs font-bold tracking-widest uppercase transition-colors relative ${isActive ? 'text-navy-dark' : 'text-navy-dark/50 group-hover:text-navy-dark/80'}`}>
@@ -158,7 +160,7 @@ export function FeaturedMenu({ isFullMenu = false }) {
         </div>
 
         {/* Menu Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <AnimatePresence mode="popLayout">
             {itemsToDisplay.map((item, idx) => <motion.div key={item.name + activeTab} initial={{
             opacity: 0,
@@ -210,22 +212,24 @@ export function FeaturedMenu({ isFullMenu = false }) {
           </AnimatePresence>
         </motion.div>
         
-        <div className="mt-20 text-center">
-          {!isFullMenu && (
-            <Link to="/menu" className="inline-block px-10 py-4 rounded-full bg-navy-dark text-white font-medium shadow-xl shadow-navy-dark/20 hover:bg-navy transition-colors">
-              View Full Menu
-            </Link>
-          )}
-          {isFullMenu && activeTab !== 'all' && (
-            <motion.button onClick={() => setActiveTab('all')} whileHover={{
-            scale: 1.05
-          }} whileTap={{
-            scale: 0.95
-          }} className="inline-block px-10 py-4 rounded-full bg-navy-dark text-white font-medium shadow-xl shadow-navy-dark/20 hover:bg-navy transition-colors">
-              View All Items
-            </motion.button>
-          )}
-        </div>
+        {(!isFullMenu || (isFullMenu && activeTab !== 'all')) && (
+          <div className="mt-8 text-center">
+            {!isFullMenu && (
+              <Link to="/menu" className="inline-block px-10 py-4 rounded-full bg-navy-dark text-white font-medium shadow-xl shadow-navy-dark/20 hover:bg-navy transition-colors">
+                View Full Menu
+              </Link>
+            )}
+            {isFullMenu && activeTab !== 'all' && (
+              <motion.button onClick={() => setActiveTab('all')} whileHover={{
+              scale: 1.05
+            }} whileTap={{
+              scale: 0.95
+            }} className="inline-block px-10 py-4 rounded-full bg-navy-dark text-white font-medium shadow-xl shadow-navy-dark/20 hover:bg-navy transition-colors">
+                View All Items
+              </motion.button>
+            )}
+          </div>
+        )}
       </div>
     </section>;
 }

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import aboutImage from '../../assets/About.jpg';
 export function AboutSection() {
-  return <section id="about" className="py-24 md:py-32 bg-white relative overflow-hidden">
+  return <section id="about" className="py-8 md:py-12 bg-white relative overflow-hidden">
       {/* Decorative Wave Overlay - Bottom Left */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none opacity-[0.04] z-0" style={{
       backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'><g fill='none' stroke='%23123E8A' stroke-width='2'><circle cx='0' cy='40' r='20'/><circle cx='40' cy='40' r='20'/><circle cx='80' cy='40' r='20'/><circle cx='20' cy='40' r='10'/><circle cx='60' cy='40' r='10'/><circle cx='0' cy='40' r='30'/><circle cx='40' cy='40' r='30'/><circle cx='80' cy='40' r='30'/></g></svg>")`,
@@ -35,12 +35,18 @@ export function AboutSection() {
           duration: 0.8,
           ease: 'easeOut'
         }} className="relative">
+            {/* Mobile-only header tag above image */}
+            <div className="flex items-center gap-4 mb-4 lg:hidden">
+              <span className="text-navy uppercase tracking-[0.2em] text-sm font-bold">ABOUT SORA EATS</span>
+              <div className="w-12 h-[2px] bg-navy/30"></div>
+            </div>
+
             {/* Dot Grid Pattern */}
-            <div className="absolute -top-6 -left-6 w-32 h-32 z-0 opacity-80" style={{
+            <div className="absolute top-6 lg:-top-6 -left-6 w-32 h-32 z-0 opacity-80" style={{
             backgroundImage: 'radial-gradient(circle, #123E8A 3px, transparent 3px)',
             backgroundSize: '20px 20px'
           }} />
-           <div className="relative h-[600px] md:h-[750px] rounded-[24px] overflow-hidden z-10 shadow-2xl shadow-navy-dark/10">
+           <div className="relative h-[400px] md:h-[500px] rounded-[24px] overflow-hidden z-10 shadow-2xl shadow-navy-dark/10">
   <div className="absolute inset-0 bg-navy-dark/5 hover:bg-transparent transition-colors duration-500 z-10" />
 <img src={aboutImage} alt="Sora Eats Interior" className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" /></div>
           </motion.div>
@@ -59,7 +65,7 @@ export function AboutSection() {
           duration: 0.8,
           ease: 'easeOut'
         }} className="flex flex-col justify-center max-w-lg">
-            <div className="flex items-center gap-4 mb-6">
+            <div className="hidden lg:flex items-center gap-4 mb-6">
               <span className="text-navy uppercase tracking-[0.2em] text-sm font-bold">ABOUT SORA EATS</span>
               <div className="w-12 h-[2px] bg-navy/30"></div>
             </div>

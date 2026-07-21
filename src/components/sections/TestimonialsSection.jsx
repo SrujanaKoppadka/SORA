@@ -7,33 +7,33 @@ import { FiStar } from 'react-icons/fi';
 
 const testimonials = [
   {
-    name: "James Wilson",
-    role: "Food Critic",
-    initial: "J",
-    text: "Sora Eats delivers an authentic experience that rivals some of the best spots in Japan. The attention to detail in their broth is outstanding."
+    name: "Aarav Sharma",
+    role: "Food Blogger",
+    initial: "A",
+    text: "Sora Eats delivers an authentic experience that rivals some of the best Japanese culinary spots. The attention to detail in their broth is outstanding."
   },
   {
-    name: "Sarah Chen",
+    name: "Priya Patel",
     role: "Local Guide",
-    initial: "S",
+    initial: "P",
     text: "The omakase set is a masterclass in balance and flavor. Every piece of nigiri is crafted with such precision. Highly recommended!"
   },
   {
-    name: "Michael Park",
+    name: "Rohan Verma",
     role: "Regular Customer",
-    initial: "M",
+    initial: "R",
     text: "Finally, a place that doesn't compromise on quality while maintaining a fast-casual vibe. The Wagyu donburi is my weekly indulgence."
   },
   {
-    name: "Elena Rodriguez",
-    role: "Chef",
-    initial: "E",
+    name: "Ananya Iyer",
+    role: "Culinary Critic",
+    initial: "A",
     text: "You can taste the dedication in the ingredients. The A5 Wagyu melts in your mouth and the rice is seasoned to absolute perfection."
   },
   {
-    name: "David Kim",
+    name: "Vikram Malhotra",
     role: "Travel Writer",
-    initial: "D",
+    initial: "V",
     text: "Every course arrives like it was plated for a much finer bill. The sea bream course alone justified the trip across town."
   }
 ];
@@ -75,12 +75,12 @@ function Ticket({ t }) {
 
 export function TestimonialsSection() {
   return (
-    <section className="relative py-24 md:py-32 bg-secondary/40 overflow-hidden">
+    <section className="relative py-8 md:py-12 bg-secondary/40 overflow-hidden">
       <div className="seigaiha absolute inset-0 opacity-[0.15]" />
 
       <div className="relative z-10">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="flex flex-col items-center text-center mb-16">
+          <div className="flex flex-col items-center text-center mb-6 md:mb-8">
             <span className="kicker-line text-navy/60 uppercase tracking-[0.25em] text-xs font-semibold">
               Guest Book
             </span>
