@@ -19,7 +19,7 @@ export function AboutSection() {
     }} />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-24 items-center">
           
           {/* Left: Interior Image with Dot Grid */}
           <motion.div initial={{
@@ -41,11 +41,6 @@ export function AboutSection() {
               <div className="w-12 h-[2px] bg-navy/30"></div>
             </div>
 
-            {/* Dot Grid Pattern */}
-            <div className="absolute top-6 lg:-top-6 -left-6 w-32 h-32 z-0 opacity-80" style={{
-            backgroundImage: 'radial-gradient(circle, #123E8A 3px, transparent 3px)',
-            backgroundSize: '20px 20px'
-          }} />
            <div className="relative h-[400px] md:h-[500px] rounded-[24px] overflow-hidden z-10 shadow-2xl shadow-navy-dark/10">
   <div className="absolute inset-0 bg-navy-dark/5 hover:bg-transparent transition-colors duration-500 z-10" />
 <img src={aboutImage} alt="Sora Eats Interior" className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105" /></div>

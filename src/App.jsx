@@ -17,6 +17,8 @@ import { useLocation } from 'react-router-dom';
 
 import { useLenis } from 'lenis/react';
 
+import { ScrollToTopButton } from './components/ScrollToTopButton';
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   const lenis = useLenis();
@@ -110,6 +112,7 @@ function AppContent() {
               </AnimatePresence>
             </main>
             <Footer />
+            <ScrollToTopButton />
             <FeedbackModal isOpen={isFeedbackOpen} onClose={closeFeedback} />
           </motion.div>
         </SmoothScroll>

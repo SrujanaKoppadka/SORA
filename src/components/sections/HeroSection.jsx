@@ -129,7 +129,7 @@ export function HeroSection() {
       <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px] bg-white rounded-full shadow-[0_0_80px_rgba(18,62,138,0.05)] z-0 hidden lg:block" />
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 min-h-[600px]">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8 min-h-[600px]">
           
           {/* Left Content */}
           <div className="w-full lg:w-[45%] flex flex-col justify-center">
