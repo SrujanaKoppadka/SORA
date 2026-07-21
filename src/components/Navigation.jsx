@@ -98,9 +98,9 @@ export function Navigation() {
       </motion.nav>
 
       {/* Mobile Top Navigation Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-md border-b border-navy/10 px-6 py-3 flex justify-between items-center">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-md border-b border-navy/10 px-6 py-2 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2">
-          <img src="/Soralogo.png" alt="Sora Eats" className="w-12 h-12 object-contain" />
+          <img src="/Soralogo.png" alt="Sora Eats" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
         </Link>
         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-navy-dark p-2">
           {mobileMenuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
